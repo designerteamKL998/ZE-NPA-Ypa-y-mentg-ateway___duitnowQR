@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Payment Unsuccessful</title>
+<link rel="stylesheet" href="payment-unsuccessful.css">
+</head>
+<body>
+<main class="unsuccess-page">
+  <section class="unsuccess-card">
+    <div class="status-icon" aria-hidden="true"><span>×</span></div>
+
+    <h1>Payment Unsuccessful</h1>
+    <p class="subtitle">We couldn't complete your payment.</p>
+    <p class="description">Your payment was not completed successfully. Please try again or choose another payment method.</p>
+
+    <div class="transaction-card">
+      <div class="transaction-row">
+        <span>Merchant</span>
+        <strong>YourBrand Sdn. Bhd.</strong>
+      </div>
+      <div class="transaction-row">
+        <span>Transaction ID</span>
+        <strong>INV20241026-001</strong>
+      </div>
+      <div class="transaction-row amount-row">
+        <span>Amount</span>
+        <strong>RM 50.00</strong>
+      </div>
+      <div class="transaction-row">
+        <span>Payment Method</span>
+        <strong>DuitNow QR</strong>
+      </div>
+    </div>
+
+    <div class="reason-box">
+      <span class="reason-icon">!</span>
+      <div>
+        <strong>Payment could not be processed</strong>
+        <p>Please check your payment details and try again. If the amount has already been deducted, please contact Customer Support.</p>
+      </div>
+    </div>
+
+    <button class="retry-btn" type="button" onclick="window.location.href='index.html'">Try Again</button>
+    <p class="support">Need help? <span>Contact Customer Support</span></p>
+
+    <div class="secure-note">
+      <span class="lock">✓</span>
+      <div><strong>100% Secure Payment</strong><small>Your payment information is protected.</small></div>
+    </div>
+
+    <img class="brand-logo" src="assets/payment_gateway/logo-zev-pay.png" alt="VaderPay">
+  </section>
+</main>
+</body>
+</html>

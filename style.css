@@ -1,0 +1,891 @@
+/* DuitNow QR — exact supplied assets */
+:root {
+    --lg:20px;
+    --md:16px;
+    --sm:14px;
+    --navy:#172a49;
+    --muted:#617695;
+    --pink:#f51f68;
+    --line:#e5eaf0;
+    --card:#fff;
+    --bg:#f7f8fa;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    min-height: 100%;
+    font-family: Arial,Helvetica,sans-serif;
+    color: var(--navy);
+    background: var(--bg);
+}
+
+button {
+    font: inherit;
+}
+
+body {
+    min-height: 100vh;
+    background-color: #E8F8F8 !important;
+    background-image: url("assets/bg-dd.svg") !important;
+    background-repeat: repeat !important;
+    background-position: center top;
+    background-size: 960px 540px;
+}
+
+.page {
+    min-height: 100vh;
+    padding: 55px 30px;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(135deg,#fafafa,#f6f7f9);
+}
+
+.desktop {
+    width: min(1240px,94vw);
+    display: grid;
+    grid-template-columns: 520px 1fr;
+    gap: 48px;
+    align-items: start;
+}
+
+.mobile {
+    display: none;
+}
+
+h1 {
+    font-size: 42px;
+    line-height: 1.08;
+    margin: 10px 0 13px;
+    letter-spacing: -1.8px;
+}
+
+    h1 span {
+        color: var(--pink);
+    }
+
+.intro {
+    font-size: 18px;
+    line-height: 1.45;
+    color: #5c7395;
+    margin: 0 0 23px;
+}
+
+.qr-card {
+    width: 480px;
+    background: #292929;
+    border-radius: 18px;
+    padding: 24px 24px 20px;
+    color: #fff;
+    text-align: center;
+    box-shadow: 0 12px 28px rgba(0,0,0,.10);
+}
+
+.duitnow-brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.duitnow-logo {
+    width: 31px;
+    height: 31px;
+    object-fit: contain;
+    display: block;
+    filter: brightness(0) invert(1);
+}
+
+.duitnow-brand strong {
+    display: block;
+    text-align: left;
+    font-size: 20px;
+    color: var(--pink);
+}
+
+.duitnow-brand span {
+    display: block;
+    text-align: left;
+    font-size: 11px;
+}
+
+.duitnow-symbol img {
+    width: 50px;
+    height: 50px;
+    filter: brightness(0) invert(1);
+}
+
+.qr-box {
+    width: 300px;
+    height: 300px;
+    background: #fff;
+    border-radius: 13px;
+    margin: 0 auto;
+}
+
+    .qr-box img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+.open-bank {
+    font-size: 14px;
+    margin: 0 0 15px;
+}
+
+.bank-list {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+    .bank-list div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+    }
+
+    .bank-list img {
+        width: 40px;
+        height: 40px;
+        object-fit: contain;
+        border-radius: 7px;
+    }
+
+    .bank-list span {
+        font-size: 9px;
+        color: #fff;
+    }
+
+.card {
+    background: var(--card);
+    border: 1px solid #e8edf2;
+    border-radius: 18px;
+    box-shadow: 0 8px 25px rgba(30,45,70,.06);
+}
+
+.summary {
+    padding: 16px 22px 17px;
+    margin-top: 7px;
+}
+
+.summary-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+    .summary-head h2, .how h2 {
+        font-size: var(--md);
+        margin: 0;
+        font-weight: 700;
+    }
+
+    .summary-head h2 {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+    }
+
+        .summary-head h2 img {
+            width: 17px;
+            height: 17px;
+            filter: brightness(0) invert(0);
+        }
+
+.status {
+    background: var(--navy);
+    color: #fff;
+    padding: 12px 34px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+    .status img {
+        filter: brightness(0) invert(1);
+        width: 10px;
+        height: auto;
+    }
+
+.summary-grid {
+    display: grid;
+    grid-template-columns: 1fr 190px;
+    gap: 20px;
+    margin-top: 5px;
+}
+
+.summary-details > div {
+    min-height: 28px;
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.summary-details span {
+    font-size: 12px;
+    color: var(--muted);
+}
+
+.summary-details strong {
+    font-size: 13px;
+}
+
+.summary-details .big {
+    font-size: 25px;
+}
+
+.more {
+    border: 0;
+    background: none;
+    color: #597293;
+    padding: 10px 0 0;
+    font-size: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+    .more img {
+        width: 10px;
+        height: 10px;
+        transition: .2s;
+    }
+
+    .more.open img {
+        transform: rotate(180deg);
+    }
+
+.more-content {
+    display: none;
+    font-size: 11px;
+    line-height: 1.7;
+    color: #61708a;
+    padding-top: 7px;
+}
+
+    .more-content > div {
+        min-height: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+    }
+
+    .more-content.open {
+        display: block;
+    }
+
+.timer {
+    background: #f1f2f4;
+    border-radius: 13px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 127px;
+    text-align: center;
+}
+
+    .timer > img {
+        width: 22px;
+        height: 22px;
+        margin-bottom: 5px;
+    }
+
+    .timer span {
+        font-size: 11px;
+        color: #71819a;
+    }
+
+    .timer strong {
+        font-size: 28px;
+        line-height: 1.05;
+        margin-top: 3px;
+    }
+
+    .timer b {
+        font-size: 12px;
+    }
+
+.how {
+    margin-top: 12px;
+    padding: 16px 21px 18px;
+}
+
+.steps {
+    display: grid;
+    grid-template-columns: 1fr 40px 1fr 40px 1fr;
+    align-items: start;
+    margin-top: 14px;
+}
+
+.pay-step {
+    min-width: 0;
+}
+
+.step-top {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+    .step-top b {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background: var(--navy);
+        color: #fff;
+        display: grid;
+        place-items: center;
+        font-size: var(--sm);
+    }
+
+    .step-top i {
+        width: 34px;
+        height: 34px;
+        border: 1px solid var(--navy);
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        font-style: normal;
+    }
+
+        .step-top i img {
+            width: 21px;
+            height: 21px;
+            object-fit: contain;
+        }
+
+.pay-step strong {
+    display: block;
+    font-size: 13px;
+    margin-top: 12px;
+}
+
+.pay-step span {
+    display: block;
+    font-size: 11px;
+    color: #667a97;
+    line-height: 1.45;
+    margin-top: 4px;
+}
+
+.connector {
+    height: 1px;
+    background: #b5bdc9;
+    margin-top: 17px;
+}
+
+.confirm-pay {
+    width: 70%;
+    height: 51px;
+    margin: 15px auto;
+    border-radius: 50px;
+    background: #fff;
+    color: var(--navy);
+    cursor: pointer;
+    font-size: var(--sm);
+    font-weight: 700;
+}
+
+    .confirm-pay:hover {
+        background: #292929;
+        color: #fff;
+        border: 2px solid #fff;
+    }
+
+.important {
+    width: 100%;
+    height: 51px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    background: #fff;
+    border: 1px solid var(--navy);
+    border-radius: 10px;
+    color: var(--navy);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    cursor: pointer;
+    font-size: var(--sm);
+    font-weight: 700;
+}
+
+    .important > img {
+        width: 12px;
+        height: 12px;
+        transition: .2s;
+    }
+
+    .important.open > img {
+        transform: rotate(180deg);
+    }
+
+.important-content {
+    display: none;
+    border: 1px solid #e1e5eb;
+    border-top: 0;
+    border-radius: 0 0 10px 10px;
+    padding: 10px 16px;
+    font-size: 11px;
+    line-height: 1.5;
+    color: #61708a;
+}
+
+    .important-content.open {
+        display: block;
+    }
+
+    .important-content ul {
+        margin: 0;
+        padding-left: 17px;
+    }
+
+    .important-content li {
+        margin-bottom: 5px;
+    }
+
+.trust {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px 35px;
+    margin: 25px 20px 0;
+}
+
+    .trust > div {
+        display: grid;
+        grid-template-columns: 50px 1fr;
+        align-items: center;
+    }
+
+    .trust img {
+        width: 46px;
+        height: 46px;
+        grid-row: span 2;
+    }
+
+    .trust strong {
+        font-size: var(--sm);
+    }
+
+    .trust span {
+        font-size: 10px;
+        color: #667a97;
+        margin-top: 2px;
+    }
+
+.vaderpay {
+    filter: brightness(0);
+    display: block;
+    width: 115px;
+    margin: 70px 0 0 auto;
+    filter: brightness(0) invert(0);
+}
+
+@media(max-width:767px) {
+    .page {
+        display: block;
+        padding: 29px 12px 26px;
+        background: linear-gradient(145deg,#fbfbfc,#f5f7f9);
+    }
+
+    .desktop {
+        display: none;
+    }
+
+    .mobile {
+        display: block;
+    }
+
+    h1 {
+        font-size: 28px;
+        letter-spacing: -1px;
+        margin: 12px 0 9px;
+    }
+
+    .intro {
+        font-size: 14px;
+        line-height: 1.45;
+        margin-bottom: 17px;
+    }
+
+    .qr-card {
+        width: 100%;
+        border-radius: 18px;
+        padding: 17px 13px 13px;
+    }
+
+    .duitnow-brand {
+    }
+
+    .duitnow-logo {
+        width: 28px;
+        height: 28px;
+        filter: brightness(0) invert(1);
+    }
+
+    .duitnow-brand strong {
+        font-size: 20px;
+    }
+
+    .qr-box {
+        width: 240px;
+        height: 240px;
+        margin-bottom: 14px;
+    }
+
+    .open-bank {
+        margin-bottom: 13px;
+    }
+
+    .bank-list {
+        gap: 17px;
+    }
+
+        .bank-list img {
+            width: 40px;
+            height: 40px;
+        }
+
+        .bank-list span {
+            font-size: 8px;
+        }
+
+    .summary {
+        margin-top: 9px;
+        padding: 16px 14px 14px;
+        border-radius: 17px;
+    }
+
+    .summary-head h2 {
+        font-size: var(--md);
+    }
+
+    .summary-details > div {
+        min-height: 30px;
+    }
+
+    .summary-details span {
+        font-size: 11px;
+    }
+
+    .summary-details strong {
+        font-size: 12px;
+    }
+
+    .summary-details .big {
+        font-size: 22px;
+    }
+
+    .summary-grid {
+        display: block;
+    }
+
+    .summary .timer {
+        display: none;
+    }
+
+    .mobile-status {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+        margin-top: 14px;
+    }
+
+        .mobile-status > div {
+            background: #f1f2f4;
+            border-radius: 13px;
+            min-height: 91px;
+        }
+
+    .awaiting {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        padding-top: 8px;
+        font-size: 10px;
+        font-weight: 700;
+    }
+
+    .status-icons {
+        display: flex;
+        gap: 12px;
+        margin-top: 7px;
+    }
+
+        .status-icons span {
+            width: 40px;
+            height: 40px;
+            border-radius: 7px;
+            display: grid;
+            place-items: center;
+            font-size: 18px;
+        }
+
+    .mobile-status .timer {
+        display: flex;
+        min-height: 91px;
+    }
+
+        .mobile-status .timer > img {
+            width: 19px;
+            height: 19px;
+        }
+
+        .mobile-status .timer strong {
+            font-size: 24px;
+        }
+
+        .mobile-status .timer b {
+            font-size: 11px;
+        }
+
+    .how {
+        margin-top: 14px;
+        padding: 16px 15px 14px;
+        border-radius: 17px;
+    }
+
+        .how h2 {
+            font-size: var(--md);
+        }
+
+    .steps {
+        grid-template-columns: repeat(3,1fr);
+        gap: 10px;
+        margin-top: 15px;
+    }
+
+    .connector {
+        display: none;
+    }
+
+    .step-top {
+        gap: 6px;
+    }
+
+        .step-top b {
+            width: 31px;
+            height: 31px;
+            font-size: 13px;
+        }
+
+        .step-top i {
+            width: 30px;
+            height: 30px;
+        }
+
+            .step-top i img {
+                width: 19px;
+                height: 19px;
+            }
+
+    .pay-step strong {
+        font-size: 11px;
+        line-height: 1.2;
+        margin-top: 9px;
+    }
+
+    .pay-step span {
+        font-size: 9px;
+        line-height: 1.4;
+    }
+
+    .important {
+        height: 48px;
+        margin-top: 15px;
+        font-size: var(--sm);
+    }
+
+    .important-content {
+        font-size: 10px;
+    }
+
+    .trust {
+        grid-template-columns: repeat(3,1fr);
+        gap: 6px;
+        margin: 13px 0 0;
+    }
+
+        .trust > div {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            gap: 5px;
+        }
+
+        .trust img {
+            width: 38px;
+            height: 38px;
+        }
+
+        .trust strong {
+            font-size: 9px;
+            white-space: nowrap;
+        }
+
+        .trust span {
+            font-size: 6px;
+            white-space: nowrap;
+        }
+
+    .vaderpay {
+        width: 78px;
+        margin: 35px auto 0;
+    }
+}
+
+.channel-logo {
+    height: 12px;
+    width: auto;
+    max-width: 110px;
+    vertical-align: middle;
+    object-fit: contain;
+    filter: brightness(0);
+}
+
+
+/* ZEV PAY light theme — colours only; original layout, sizing and interactions preserved */
+:root {
+    --navy: #0B3555;
+    --muted: #5D7783;
+    --pink: #0AC4C2;
+    --line: #CDE7E8;
+    --card: #FFFFFF;
+    --bg: #E8F8F8;
+}
+
+html, body {
+    color: #0B3555;
+    background: #E8F8F8;
+}
+
+.page {
+    background: transparent !important;
+}
+
+@media (max-width: 767px) {
+    .page {
+        background: transparent !important;
+    }
+}
+
+.qr-card {
+    background: #FFFFFF;
+    color: #0B3555;
+    border: 1px solid #CDE7E8;
+    box-shadow: 0 8px 24px rgba(11,53,85,.08);
+}
+
+.duitnow-brand strong,
+h1 span,
+.summary-details .big {
+    color: #0AC4C2;
+}
+
+.duitnow-logo,
+.duitnow-symbol img {
+    filter: none;
+}
+
+.bank-list span {
+    color: #0B3555;
+}
+
+.status {
+    background: #F1FAFA;
+    border: 1px solid #CDE7E8;
+    color: #0B3555;
+}
+
+.status img {
+    filter: none;
+}
+
+.timer {
+    background: #F7FCFC;
+    border: 1px solid #CDE7E8;
+    color: #0B3555;
+}
+
+.confirm-pay {
+    background: #0AC4C2;
+    color: #0B3555;
+    border: 0;
+    transition-duration: 0.4s;
+}
+
+    .confirm-pay:hover {
+        background: none;
+        border: 1px #0AC4C2 solid;
+        color: #0AC4C2;
+    }
+
+.important {
+    background: #F7FCFC;
+    border-color: #CDE7E8;
+    color: #0B3555;
+}
+
+.important-content {
+    background: #F7FCFC;
+    border-color: #CDE7E8;
+    color: #5D7783;
+}
+
+.card {
+    background: #FFFFFF;
+    border-color: #CDE7E8;
+    box-shadow: 0 8px 24px rgba(11,53,85,.08);
+}
+
+.step-top b {
+    background: #0AC4C2;
+    color: #0B3555;
+}
+
+.step-top i {
+    border-color: #0AC4C2;
+}
+
+.connector {
+    background: #CDE7E8;
+}
+
+.vaderpay {
+    filter: none;
+}
+
+.channel-logo {
+    filter: none;
+}
+
+
+/* FIX: show the supplied SVG pattern over the ZEV PAY light background */
+html, body {
+    background-color: #E8F8F8 !important;
+}
+body {
+    background-image: url("assets/bg-dd.svg") !important;
+    background-repeat: repeat !important;
+    background-position: center top !important;
+    background-size: 960px 540px !important;
+    background-attachment: fixed;
+}
+.page {
+    background: transparent !important;
+}
+@media (max-width: 767px) {
+    .page { background: transparent !important; }
+}
