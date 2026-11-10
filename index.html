@@ -1,162 +1,68 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Pay with DuitNow</title>
+
+<title>Select Bank</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <main class="page">
-  <section class="desktop">
-    <section class="pay-left">
-      <h1>Pay with <span>DuitNow</span></h1>
-      <p class="intro">Scan the QR code with your bank app<br>to complete the payment securely.</p>
 
-      <div class="qr-card">
-        <div class="duitnow-brand">
-          <div class="duitnow-symbol"><img src="assets/payment_gateway/duitnow.svg" /></div>
-          <div><strong>DuitNow</strong><span>Scan &amp; Pay</span></div>
-        </div>
-        <div class="qr-box"><img src="assets/payment_gateway/QRcode.jpg" alt="DuitNow QR Code"></div>
-        <button class="confirm-pay" type="button">Confirm and pay</button>
-      <p class="open-bank">Open with your bank app</p>
-        <div class="bank-list">
-          <div><img src="assets/bank/bank-maybank.svg"><span>Maybank</span></div>
-          <div><img src="assets/bank/bank-Cimb.svg"><span>CIMB</span></div>
-          <div><img src="assets/bank/bank-Pb.svg"><span>Public Bank</span></div>
-          <div><img src="assets/bank/bank-RHB.svg"><span>RHB</span></div>
-          <div><img src="assets/bank/bank-HLB.svg"><span>Hong Leong</span></div>
+  <header class="topbar">
+    <img src="assets/logo-pax.png" class="vaderpay" alt="pax">
+    <div class="timer"><span><img src="assets/payment_gateway/icn-timer.svg" /></span><strong id="timer">04:16</strong></div>
+  </header>
+
+  <section class="layout">
+    <section class="bank-card">
+      <div class="section-head">
+        <div class="section-icon"><img src="assets/bank/icn-bank.svg" /></div>
+        <div>
+          <h1>Select Bank</h1>
+          <p>Choose your preferred bank to proceed with payment.</p>
         </div>
       </div>
+
+      <div class="banks" id="banks" aria-label="Available banks"></div>
+      <p id="bankStatus" class="bank-status" role="status" aria-live="polite"></p>
+
+      <div class="dots" id="dots"></div>
     </section>
 
-    <section class="pay-right">
-      <div class="summary card">
-        <div class="summary-head">
-          <h2><img src="assets/payment_gateway/icn-onlineTransfer.svg" alt="">Payment Summary</h2>
-          <div class="status"><img src="assets/payment_gateway/icn-timer.svg" /> Awaiting payment</div>
-        </div>
-        <div class="summary-grid">
-          <div class="summary-details">
-            <div><span>Merchant</span><strong>YourBrand Sdn. Bhd.</strong></div>
-            <div><span>Transaction ID</span><strong>INV20241026-001</strong></div>
-            <div><span>Amount</span><strong class="big">RM 50.00</strong></div>
-            <button class="more" id="desktopMore" type="button">View more details <img src="assets/payment_gateway/icn-dropdown.svg" alt=""></button>
-            <div class="more-content" id="desktopMoreContent">
-                <div><span>Payment Method</span><strong>DuitNow QR</strong></div>
-                <div><span>Payment Channel</span><strong>PAX</strong></div>
-                <div><span>Package</span><strong>No Bonus</strong></div>
-            </div>
-          </div>
-          <div class="timer">
-            <img src="assets/payment_gateway/icn-timer.svg" alt="">
-            <span>Complete payment within</span>
-            <strong class="countdown">01:00</strong>
-            <b>minutes</b>
-          </div>
-        </div>
+    <aside class="summary-card">
+      <h2>Payment Summary</h2>
+      <p class="summary-sub">Please review your payment details before proceeding.</p>
+
+      <div class="summary-row amount">
+        <span>Amount</span>
+        <strong>RM 100.00</strong>
+      </div>
+      <div class="summary-row">
+        <span>Transaction ID</span>
+        <strong>TXN20260910A182 <button class="copy" type="button" aria-label="Copy transaction ID"><img src="assets/payment_gateway/copy-icon_white.svg" alt=""></button></strong>
+      </div>
+      <div class="summary-row">
+        <span>Created Date &amp; Time</span>
+        <strong>10 Sep 2026, 2:45 PM</strong>
       </div>
 
-      <div class="how card">
-        <h2>How to pay</h2>
-        <div class="steps">
-          <div class="pay-step">
-            <div class="step-top"><b>1</b><i><img src="assets/payment_gateway/icn-openbank.svg" alt=""></i></div>
-            <strong>Open your bank app</strong>
-            <span>Launch your banking app<br>(Maybank2u, CIMB Clicks, etc.).</span>
-          </div>
-          <div class="connector"></div>
-          <div class="pay-step">
-            <div class="step-top"><b>2</b><i><img src="assets/payment_gateway/icn-scan.svg" alt=""></i></div>
-            <strong>Scan the DuitNow QR code</strong>
-            <span>Use the QR scanner in<br>your bank app.</span>
-          </div>
-          <div class="connector"></div>
-          <div class="pay-step">
-            <div class="step-top"><b>3</b><i><img src="assets/payment_gateway/Icn-confirm.svg" alt=""></i></div>
-            <strong>Confirm payment</strong>
-            <span>Check the details and<br>approve the payment.</span>
-          </div>
-        </div>
-        <button class="important" id="desktopImportant" type="button"><span>ⓘ Important Notes</span><img src="assets/payment_gateway/icn-dropdown.svg" alt=""></button>
-        <div class="important-content" id="desktopImportantContent">
-          <ul>
-            <li>Kindly ensure your bank account has been activated for online payment processing.</li>
-            <li>Kindly ensure that you have sufficient funds in the account.</li>
-            <li>Kindly ensure that you have entered the correct ID and password.</li>
-            <li>Please do not click on any submit button more than once.</li>
-            <li>Please do not refresh your browser.</li>
-            <li>Please take note of the reference number if any event you need to contact our Customer Service for further action.</li>
-          </ul>
-        </div>
+      <button class="important" id="importantBtn" type="button">
+          <img src="assets/bank/green-info.svg" /><span>Important Notes</span><img class="dropdown-icon" src="assets/payment_gateway/icn-dropdown-w.svg" alt="">
+      </button>
+      <div class="important-content" id="importantContent">
+        <ul>
+          <li>Kindly ensure your bank account has been activated for online payment processing.</li>
+          <li>Kindly ensure that you have sufficient funds in the account.</li>
+          <li>Please do not refresh your browser.</li>
+          <li>Please do not click on any submit button more than once.</li>
+        </ul>
       </div>
 
-      <div class="trust">
-        <div><img src="assets/payment_gateway/icn-secure-blk.svg"><strong>100% Secure Payment</strong><span>Your data is fully encrypted</span></div>
-        <div><img src="assets/payment_gateway/icn-fast-blk.svg"><strong>Fast &amp; Reliable</strong><span>Your data is fully encrypted</span></div>
-        <div><img src="assets/payment_gateway/icn-support-blk.svg"><strong>24x7 Support</strong><span>Our team is always be with you</span></div>
-      </div>
-      <img class="vaderpay" src="assets/payment_gateway/logo-pax.png" alt="VaderPay">
-    </section>
-  </section>
-
-  <section class="mobile">
-    <h1>Pay with <span>DuitNow</span></h1>
-    <p class="intro">Scan the QR code with your bank app to complete the<br>payment securely.</p>
-    <div class="qr-card">
-      <div class="duitnow-brand"><img class="duitnow-logo" src="assets/payment_gateway/duitnow.svg" alt="DuitNow"><div><strong>DuitNow</strong><span>Scan &amp; Pay</span></div></div>
-      <div class="qr-box"><img src="assets/payment_gateway/QRcode.jpg" alt="DuitNow QR Code"></div>
-      <button class="confirm-pay" type="button">Confirm and pay</button>
-      <p class="open-bank">Open with your bank app</p>
-      <div class="bank-list">
-        <div><img src="assets/bank/bank-maybank.svg"><span>Maybank</span></div>
-        <div><img src="assets/bank/bank-Cimb.svg"><span>CIMB</span></div>
-        <div><img src="assets/bank/bank-Pb.svg"><span>Public Bank</span></div>
-        <div><img src="assets/bank/bank-RHB.svg"><span>RHB</span></div>
-        <div><img src="assets/bank/bank-HLB.svg"><span>Hong Leong</span></div>
-      </div>
-    </div>
-
-    <div class="summary card">
-      <div class="summary-head"><h2><img src="assets/payment_gateway/icn-onlineTransfer.svg">Payment Summary</h2></div>
-      <div class="summary-details">
-        <div><span>Merchant</span><strong>YourBrand Sdn. Bhd.</strong></div>
-        <div><span>Transaction ID</span><strong>INV20241026-001</strong></div>
-        <div><span>Amount</span><strong class="big">RM 50.00</strong></div>
-        <button class="more" id="mobileMore" type="button">View more details <img src="assets/payment_gateway/icn-dropdown.svg" alt=""></button>
-        <div class="more-content" id="mobileMoreContent">Payment Method: DuitNow QR<br>Payment Channel: <img class="channel-logo" src="assets/payment_gateway/logo-pax.png" alt="VaderPay"><br>Package: No Bonus</div>
-      </div>
-      <div class="mobile-status">
-        <div class="awaiting">◌ Awaiting payment<div class="status-icons"><span><img src="assets/payment_gateway/wait-bank.svg" /></span><span><img src="assets/payment_gateway/wait-approve.svg" /></span></div></div>
-        <div class="timer"><img src="assets/payment_gateway/icn-timer.svg" alt=""><span>Complete payment within</span><strong class="countdown">01:00</strong><b>minutes</b></div>
-      </div>
-    </div>
-
-    <div class="how card">
-      <h2>How to pay</h2>
-      <div class="steps">
-        <div class="pay-step"><div class="step-top"><b>1</b><i><img src="assets/payment_gateway/icn-openbank.svg" alt=""></i></div><strong>Open your bank app</strong><span>Launch your banking app<br>(Maybank2u, CIMB Clicks, etc.).</span></div>
-        <div class="pay-step"><div class="step-top"><b>2</b><i><img src="assets/payment_gateway/icn-scan.svg" alt=""></i></div><strong>Scan the DuitNow QR<br>code</strong><span>Use the QR scanner in<br>your bank app.</span></div>
-        <div class="pay-step"><div class="step-top"><b>3</b><i><img src="assets/payment_gateway/Icn-confirm.svg" alt=""></i></div><strong>Confirm payment</strong><span>Check the details and<br>approve the payment.</span></div>
-      </div>
-      <button class="important" id="mobileImportant" type="button"><span>ⓘ Important Notes</span><img src="assets/payment_gateway/icn-dropdown.svg" alt=""></button>
-      <div class="important-content" id="mobileImportantContent"><ul>
-        <li>Kindly ensure your bank account has been activated for online payment processing.</li>
-        <li>Kindly ensure that you have sufficient funds in the account.</li>
-        <li>Kindly ensure that you have entered the correct ID and password.</li>
-        <li>Please do not click on any submit button more than once.</li>
-        <li>Please do not refresh your browser.</li>
-        <li>Please take note of the reference number if any event you need to contact our Customer Service for further action.</li>
-      </ul></div>
-    </div>
-
-    <div class="trust">
-      <div><img src="assets/payment_gateway/icn-secure-blk.svg"><strong>100% Secure Payment</strong><span>Your data is fully encrypted</span></div>
-      <div><img src="assets/payment_gateway/icn-fast-blk.svg"><strong>Fast &amp; Reliable</strong><span>Your data is fully encrypted</span></div>
-      <div><img src="assets/payment_gateway/icn-support-blk.svg"><strong>24x7 Support</strong><span>Our team is always be with you</span></div>
-    </div>
-    <img class="vaderpay" src="assets/payment_gateway/logo-pax.png" alt="VaderPay">
+      <button class="proceed" id="proceed" type="button">Proceed to Bank <img src="assets/payment_gateway/icn-arrow.svg" alt=""></button>
+        <div class="redirect"><img style="width: 18px; height: auto; margin-top: -4px;" src="assets/payment_gateway/icn-secure-blk.svg" /> &nbsp; You will be redirected to your bank's secure site.</div>
+    </aside>
   </section>
 </main>
 <script src="script.js"></script>

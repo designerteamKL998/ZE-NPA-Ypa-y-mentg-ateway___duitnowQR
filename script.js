@@ -1,59 +1,121 @@
-const bindToggle = (buttonId, contentId) => {
-  const button = document.getElementById(buttonId);
-  const content = document.getElementById(contentId);
+const pages = [
+  [
+    ["assets/bank/bank-maybank.svg", "Maybank"],
+    ["assets/bank/bank-Cimb.svg", "CIMB"],
+    ["assets/bank/bank-Pb.svg", "Public Bank"],
+    ["assets/bank/bank-RHB.svg", "RHB Bank"],
+    ["assets/bank/bank-HLB.svg", "Hong Leong Bank"],
+    ["assets/bank/bank-AmBank.svg", "AmBank"]
+  ],
+  [
+    ["assets/bank/bank-Affin.svg", "Affin Bank"],
+    ["assets/bank/bank-alliance.svg", "Alliance Bank"],
+    ["assets/bank/bank-islam.svg", "Bank Islam"],
+    ["assets/bank/bank-ocbc.svg", "OCBC Bank"],
+    ["assets/bank/bank-bankrakyat.svg", "Bank Rakyat"],
+    ["assets/bank/bank-bsn.svg", "BSN"]
+  ]
+];
 
-  if (!button || !content) return;
+let page = 0;
+let selectedBank = null;
+const banks = document.getElementById("banks");
+const dots = document.getElementById("dots");
+const status = document.getElementById("bankStatus");
+const proceedButton = document.getElementById("proceed");
 
-  // Initial state: details are HIDDEN.
-  content.classList.remove('open');
-  button.classList.remove('open');
-  content.style.display = 'none';
-
-  button.addEventListener('click', () => {
-    const isOpen = content.classList.contains('open');
-
-    if (isOpen) {
-      // Open -> Hide
-      content.classList.remove('open');
-      button.classList.remove('open');
-      content.style.display = 'none';
-    } else {
-      // Hide -> Show
-      content.classList.add('open');
-      button.classList.add('open');
-      content.style.display = 'block';
-    }
+function renderBanks() {
+  banks.innerHTML = "";
+  pages[page].forEach((item) => {
+    const [image, name] = item;
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "bank" + (selectedBank === name ? " selected" : "");
+    button.setAttribute("aria-label", name);
+    button.setAttribute("aria-pressed", String(selectedBank === name));
+    const logo = document.createElement("img");
+    logo.src = image;
+    logo.alt = name;
+    const check = document.createElement("span");
+    check.className = "check";
+    button.append(logo, check);
+    button.addEventListener("click", () => {
+      selectedBank = name;
+      status.textContent = "";
+      renderBanks();
+    });
+    banks.appendChild(button);
   });
-};
 
-bindToggle('desktopMore', 'desktopMoreContent');
-bindToggle('mobileMore', 'mobileMoreContent');
-bindToggle('desktopImportant', 'desktopImportantContent');
-bindToggle('mobileImportant', 'mobileImportantContent');
+  dots.innerHTML = "";
+  pages.forEach((_, index) => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = index === page ? "active" : "";
+    button.setAttribute("aria-label", `Show bank page ${index + 1}`);
+    button.setAttribute("aria-current", index === page ? "page" : "false");
+    button.addEventListener("click", () => {
+      page = index;
+      status.textContent = "";
+      renderBanks();
+    });
+    dots.appendChild(button);
+  });
+}
+renderBanks();
 
-let seconds = 60;
-const timers = document.querySelectorAll('.countdown');
-let timerFinished = false;
+document.getElementById("importantBtn").addEventListener("click", () => {
+  const btn = document.getElementById("importantBtn");
+  const box = document.getElementById("importantContent");
+  const open = box.classList.toggle("open");
+  btn.classList.toggle("open", open);
+  btn.setAttribute("aria-expanded", String(open));
+});
 
-const goToUnsuccessful = () => {
-  if (timerFinished) return;
-  timerFinished = true;
-  window.location.href = 'payment-unsuccessful.html';
-};
-
-const renderTimer = () => {
-  const m = String(Math.floor(seconds / 60)).padStart(2, '0');
-  const s = String(seconds % 60).padStart(2, '0');
-  timers.forEach(x => x.textContent = `${m}:${s}`);
-};
-
-renderTimer();
-const countdownInterval = setInterval(() => {
-  if (seconds <= 0) {
-    clearInterval(countdownInterval);
-    goToUnsuccessful();
+proceedButton.addEventListener("click", () => {
+  if (!selectedBank) {
+    status.textContent = "Please select a bank first.";
     return;
   }
-  seconds--;
-  renderTimer();
+  const routes = {
+    "Maybank": "banks/maybank/index.html",
+    "Public Bank": "banks/public-bank/index.html",
+    "RHB Bank": "banks/rhb/index.html",
+    "Hong Leong Bank": "banks/hlb/index.html",
+    "CIMB": "banks/cimb/index.html",
+    "AmBank": "banks/ambank/index.html",
+    "Affin Bank": "banks/affin/index.html",
+    "Alliance Bank": "banks/alliance/index.html",
+    "Bank Islam": "banks/bankislam/index.html",
+    "OCBC Bank": "banks/ocbc/index.html",
+    "Bank Rakyat": "banks/bank-rakyat/index.html",
+    "BSN": "banks/bsn/index.html"
+  };
+  const target = routes[selectedBank];
+  if (!target) {
+    status.textContent = `${selectedBank} login page is not included in this demo yet.`;
+    return;
+  }
+  window.location.href = target;
+});
+
+// Copy the transaction ID shown in the summary.
+const copyButton = document.querySelector(".copy");
+if (copyButton) {
+  copyButton.addEventListener("click", async () => {
+    const transactionId = "TXN20260910A182";
+    try {
+      await navigator.clipboard.writeText(transactionId);
+      status.textContent = "Transaction ID copied.";
+    } catch (_) {
+      status.textContent = `Transaction ID: ${transactionId}`;
+    }
+  });
+}
+
+let seconds = 256;
+const timer = document.getElementById("timer");
+setInterval(() => {
+  if (seconds > 0) seconds--;
+  if (timer) timer.textContent = `${String(Math.floor(seconds / 60)).padStart(2, "0")}:${String(seconds % 60).padStart(2, "0")}`;
 }, 1000);
